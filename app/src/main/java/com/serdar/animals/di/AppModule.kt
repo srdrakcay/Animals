@@ -24,6 +24,8 @@ object AppModule {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(ApiService::class.java)
+
+
     @Provides
     fun baseUrlDogs()= Constant.BASE_URL_DOGS
 
