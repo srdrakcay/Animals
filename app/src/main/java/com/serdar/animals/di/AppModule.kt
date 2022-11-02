@@ -1,15 +1,23 @@
 package com.serdar.animals.di
 
-import com.serdar.animals.service.ApiService
+import com.serdar.animals.service.CatsService
+import com.serdar.animals.service.DogsService
 import com.serdar.animals.utils.Constant
+import com.serdar.animals.utils.Constant.BASE_URL_CATS
+import com.serdar.animals.utils.Constant.BASE_URL_DOGS
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Qualifier
 import javax.inject.Singleton
+@Qualifier
+annotation class CatsRetrofitInstance
 
+@Qualifier
+annotation class DogsRetrofitInstance
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
@@ -17,14 +25,37 @@ object AppModule {
     @Provides
     fun baseUrlCats()= Constant.BASE_URL_CATS
 
+    @CatsRetrofitInstance
     @Provides
     @Singleton
-    fun retrofitInstanceCats(BASE_URL_CATS:String):ApiService =
-        Retrofit.Builder().baseUrl(BASE_URL_CATS)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-            .create(ApiService::class.java)
+    fun retrofitInstanceCats(): Retrofit {
+        return Retrofit
+            .Builder()
+            .baseUrl(BASE_URL_CATS)
+            .addConverterFactory(GsonConverterFactory.create()).build()
+    }
 
 
+    @Provides
+    fun baseUrlDogs()= Constant.BASE_URL_DOGS
 
+    @DogsRetrofitInstance
+    @Provides
+    @Singleton
+    fun retrofitInstanceDogs(): Retrofit {
+        return Retrofit
+            .Builder()
+            .baseUrl(BASE_URL_DOGS)
+            .addConverterFactory(GsonConverterFactory.create()).build()
+    }
+    @Singleton
+    @Provides
+    fun provideGetCats(@CatsRetrofitInstance retrofit: Retrofit): CatsService {
+        return retrofit.create(CatsService::class.java)
+    }
+    @Singleton
+    @Provides
+    fun provideGetDogs(@DogsRetrofitInstance retrofit: Retrofit): DogsService {
+        return retrofit.create(DogsService::class.java)
+    }
 }

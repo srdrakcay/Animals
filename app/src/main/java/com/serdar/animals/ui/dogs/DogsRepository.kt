@@ -1,11 +1,11 @@
 package com.serdar.animals.ui.dogs
 
-import com.serdar.animals.service.ApiService
+import com.serdar.animals.service.DogsService
 import javax.inject.Inject
 
 
 class DogsRepository
-@Inject constructor(private val apiService: ApiService){
+@Inject constructor(private val dogsService: DogsService){
 
-    suspend fun getDogs()=apiService.getDogs()
+    suspend fun getDogs()=dogsService.getDogs()
 }
