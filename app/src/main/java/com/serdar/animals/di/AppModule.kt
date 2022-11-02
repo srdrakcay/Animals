@@ -26,14 +26,5 @@ object AppModule {
             .create(ApiService::class.java)
 
 
-    @Provides
-    fun baseUrlDogs()= Constant.BASE_URL_DOGS
 
-    @Provides
-    @Singleton
-    fun retrofitInstanceDogs(BASE_URL_DOGS:String):ApiService =
-        Retrofit.Builder().baseUrl(BASE_URL_DOGS)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-            .create(ApiService::class.java)
 }

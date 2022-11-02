@@ -14,7 +14,6 @@ import javax.inject.Inject
 class CatsViewmodel
 @Inject constructor(private val repository: CatsRepository) : ViewModel() {
 
-
     private val _response = MutableLiveData<Cats>()
     val catsResponse: LiveData<Cats>
         get() = _response
@@ -24,12 +23,12 @@ class CatsViewmodel
     }
 
     private fun getCats() = viewModelScope.launch {
-        repository.getCats().let { response ->
+        repository.getCats().let { it ->
 
-            if (response.isSuccessful) {
-                _response.postValue(response.body())
+            if (it.isSuccessful) {
+                _response.postValue(it.body())
             } else {
-                Log.d("tag", "getWeather Error: ${response.code()}")
+                Log.d("tag", "getWeather Error: ${it.code()}")
             }
         }
     }

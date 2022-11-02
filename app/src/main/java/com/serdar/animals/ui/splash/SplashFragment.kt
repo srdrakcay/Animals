@@ -13,7 +13,7 @@ import com.serdar.animals.databinding.FragmentSplashBinding
 import com.serdar.animals.ui.home.HomeActivity
 import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
+//@AndroidEntryPoint
 class SplashFragment : Fragment() {
     private lateinit var binding: FragmentSplashBinding
     override fun onCreateView(
