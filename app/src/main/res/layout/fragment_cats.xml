@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    tools:context=".ui.home.cats.CatsFragment">
+"    tools:context=".ui.home.cats.CatsFragment">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -24,39 +23,28 @@
             tools:src="" />
     </androidx.cardview.widget.CardView>
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="134dp"
-        android:layout_marginTop="23dp"
-        android:layout_marginEnd="167dp"
-        android:text="Button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/imageView"
+        android:id="@+id/favorite"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:backgroundTint="@color/white"
         android:src="@drawable/favorite"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
-        app:layout_constraintEnd_toStartOf="@+id/imageView2"
+        app:layout_constraintBottom_toBottomOf="@+id/refresh"
+        app:layout_constraintEnd_toStartOf="@+id/refresh"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="@+id/refresh"
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageButton
-        android:id="@+id/imageView2"
+        android:id="@+id/refresh"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginTop="44dp"
         android:backgroundTint="@color/white"
         android:src="@drawable/refresh"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/favorite"
         app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

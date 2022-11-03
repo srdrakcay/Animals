@@ -1,7 +1,6 @@
 package com.serdar.animals.ui.home.cats
 
 import android.os.Bundle
-import android.provider.Contacts
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,8 +10,6 @@ import com.bumptech.glide.Glide
 import com.serdar.animals.databinding.FragmentCatsBinding
 import com.serdar.animals.ui.cats.CatsViewmodel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.async
 
 @AndroidEntryPoint
 class CatsFragment : Fragment() {
@@ -25,15 +22,28 @@ class CatsFragment : Fragment() {
         binding = FragmentCatsBinding.inflate(layoutInflater)
 
 
-        getImage()
         return binding.root
 
     }
 
-    private fun getImage() {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        with(binding) {
+            favorite.setOnClickListener {
+                catsViewmodel.getCats()
+            }
+            refresh.setOnClickListener {
+                catsViewmodel.getCats()
+            }
+        }
+        getObserveCats()
+
+    }
+
+    private fun getObserveCats() {
         catsViewmodel.catsResponse.observe(requireActivity()) { cats ->
 
-            binding.button.setOnClickListener {
             val url = cats[0].url.toString()
 
             Glide
@@ -42,8 +52,8 @@ class CatsFragment : Fragment() {
                 .into(binding.catsImages)
 
         }
-        }
     }
+
 
 
 }

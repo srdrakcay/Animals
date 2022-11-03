@@ -24,7 +24,7 @@ class DogsViewmodel
         getDogs()
     }
 
-    private fun getDogs() = viewModelScope.launch {
+     fun getDogs() = viewModelScope.launch {
         repository.getDogs().let { response ->
 
             if (response.isSuccessful) {

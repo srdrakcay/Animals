@@ -20,11 +20,24 @@ class DogsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentDogsBinding.inflate(layoutInflater)
-        getDogImages()
+
         return binding.root
     }
 
-    private fun getDogImages() {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        with(binding){
+            favoriteDogs.setOnClickListener {
+                dogsViewmodel.getDogs()
+            }
+            refreshDogs.setOnClickListener {
+                dogsViewmodel.getDogs()
+            }
+        }
+        getObserveDog()
+    }
+
+    private fun getObserveDog() {
         dogsViewmodel.dogsResponse.observe(requireActivity()) { dogs ->
 
             val url = dogs[0].url.toString()

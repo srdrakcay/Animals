@@ -3,8 +3,10 @@
 
     <item
         android:id="@+id/catsFragment"
+        android:icon="@drawable/cat"
         android:title="Cats" />
     <item
         android:id="@+id/dogsFragment"
+        android:icon="@drawable/dog"
         android:title="Dogs" />
 </menu>

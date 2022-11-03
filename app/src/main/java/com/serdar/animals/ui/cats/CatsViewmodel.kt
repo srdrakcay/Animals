@@ -24,7 +24,7 @@ class CatsViewmodel
         getCats()
     }
 
-    private fun getCats() = viewModelScope.launch(Dispatchers.IO) {
+     fun getCats() = viewModelScope.launch {
         repository.getCats().let { it ->
 
             if (it.isSuccessful) {
