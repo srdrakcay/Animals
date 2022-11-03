@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/catsFragment"
-        android:name="com.serdar.animals.ui.home.cats.CatsFragment"
+        android:name="com.serdar.animals.ui.cats.CatsFragment"
         android:label="fragment_cats"
         tools:layout="@layout/fragment_cats" />
     <fragment
         android:id="@+id/dogsFragment"
-        android:name="com.serdar.animals.ui.home.dogs.DogsFragment"
+        android:name="com.serdar.animals.ui.dogs.DogsFragment"
         android:label="fragment_dogs"
         tools:layout="@layout/fragment_dogs" />
 </navigation>

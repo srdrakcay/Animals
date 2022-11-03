@@ -1,4 +1,4 @@
-package com.serdar.animals.model
+package com.serdar.animals.data.model
 
 data class DogsItem(
     val height: Int,

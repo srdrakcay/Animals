@@ -1,6 +1,6 @@
 package com.serdar.animals.service
 
-import com.serdar.animals.model.Cats
+import com.serdar.animals.data.model.Cats
 import retrofit2.Response
 import retrofit2.http.GET
 

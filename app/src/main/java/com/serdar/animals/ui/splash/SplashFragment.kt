@@ -7,11 +7,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
-import com.serdar.animals.R
 import com.serdar.animals.databinding.FragmentSplashBinding
-import com.serdar.animals.ui.home.HomeActivity
-import dagger.hilt.android.AndroidEntryPoint
+import com.serdar.animals.ui.HomeActivity
 
 //@AndroidEntryPoint
 class SplashFragment : Fragment() {

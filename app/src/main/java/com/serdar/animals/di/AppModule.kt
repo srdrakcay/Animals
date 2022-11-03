@@ -1,5 +1,7 @@
 package com.serdar.animals.di
 
+import android.content.Context
+import com.serdar.animals.data.wrapper.AdsOperator
 import com.serdar.animals.service.CatsService
 import com.serdar.animals.service.DogsService
 import com.serdar.animals.utils.Constant
@@ -8,6 +10,7 @@ import com.serdar.animals.utils.Constant.BASE_URL_DOGS
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -58,4 +61,11 @@ object AppModule {
     fun provideGetDogs(@DogsRetrofitInstance retrofit: Retrofit): DogsService {
         return retrofit.create(DogsService::class.java)
     }
+
+
+
+    @Provides
+    @Singleton
+    fun provideAdsOperationsWrapper(@ApplicationContext context: Context) =
+        AdsOperator(context)
 }

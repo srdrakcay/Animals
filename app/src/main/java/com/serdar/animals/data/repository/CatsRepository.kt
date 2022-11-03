@@ -1,4 +1,4 @@
-package com.serdar.animals.ui.cats
+package com.serdar.animals.data.repository
 
 import com.serdar.animals.service.CatsService
 import kotlinx.coroutines.Dispatchers

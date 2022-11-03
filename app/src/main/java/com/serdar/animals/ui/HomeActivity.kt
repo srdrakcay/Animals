@@ -1,4 +1,4 @@
-package com.serdar.animals.ui.home
+package com.serdar.animals.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

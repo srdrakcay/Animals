@@ -1,4 +1,4 @@
-package com.serdar.animals.ui.home.dogs
+package com.serdar.animals.ui.dogs
 
 import android.os.Bundle
 import android.view.LayoutInflater
