@@ -35,18 +35,20 @@ class CatsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         catsAds()
-        with(binding) {
-            favorite.setOnClickListener {
-                catsViewmodel.getCats()
+        try {
+            with(binding) {
+                favorite.setOnClickListener {
+                    catsViewmodel.getCats()
+                }
+                refresh.setOnClickListener {
+                    catsViewmodel.getCats()
+                }
             }
-            refresh.setOnClickListener {
-                catsViewmodel.getCats()
-            }
+        } catch (e: Exception) {
+
         }
         getObserveCats()
-
     }
-
     private fun getObserveCats() {
         catsViewmodel.catsResponse.observe(requireActivity()) { cats ->
 
