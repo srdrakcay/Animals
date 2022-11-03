@@ -7,6 +7,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.serdar.animals.model.Cats
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -22,7 +24,7 @@ class CatsViewmodel
         getCats()
     }
 
-    private fun getCats() = viewModelScope.launch {
+    private fun getCats() = viewModelScope.launch(Dispatchers.IO) {
         repository.getCats().let { it ->
 
             if (it.isSuccessful) {
