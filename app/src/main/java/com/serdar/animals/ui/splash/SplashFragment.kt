@@ -9,8 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import com.serdar.animals.databinding.FragmentSplashBinding
 import com.serdar.animals.ui.HomeActivity
+import dagger.hilt.android.AndroidEntryPoint
 
-//@AndroidEntryPoint
 class SplashFragment : Fragment() {
     private lateinit var binding: FragmentSplashBinding
     override fun onCreateView(
@@ -29,7 +29,7 @@ class SplashFragment : Fragment() {
                 startActivity(intent)
                 requireActivity().finish()
             },
-            600
+            3000
         )
     }
 

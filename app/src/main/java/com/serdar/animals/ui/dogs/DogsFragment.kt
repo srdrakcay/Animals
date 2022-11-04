@@ -54,7 +54,7 @@ class DogsFragment : Fragment() {
             val url = dogs[0].url.toString()
 
             Glide
-                .with(this)
+                .with(requireActivity())
                 .load(url)
                 .into(binding.dogsImages)
 

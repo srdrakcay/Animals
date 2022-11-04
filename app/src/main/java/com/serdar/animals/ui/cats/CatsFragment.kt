@@ -55,7 +55,7 @@ class CatsFragment : Fragment() {
             val url = cats[0].url.toString()
 
             Glide
-                .with(this)
+                .with(requireActivity())
                 .load(url)
                 .into(binding.catsImages)
 
