@@ -50,7 +50,7 @@ class CatsFragment : Fragment() {
         getObserveCats()
     }
     private fun getObserveCats() {
-        catsViewmodel.catsResponse.observe(requireActivity()) { cats ->
+        catsViewmodel.catsResponse.observe(viewLifecycleOwner) { cats ->
 
             val url = cats[0].url.toString()
 

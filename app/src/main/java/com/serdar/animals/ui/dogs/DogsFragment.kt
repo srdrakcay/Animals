@@ -49,12 +49,12 @@ class DogsFragment : Fragment() {
     }
 
     private fun getObserveDog() {
-        dogsViewmodel.dogsResponse.observe(requireActivity()) { dogs ->
+        dogsViewmodel.dogsResponse.observe(viewLifecycleOwner) { dogs ->
 
             val url = dogs[0].url.toString()
 
             Glide
-                .with(requireActivity())
+                .with(this)
                 .load(url)
                 .into(binding.dogsImages)
 
