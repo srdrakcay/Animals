@@ -5,18 +5,17 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.serdar.animals.data.model.Cats
 import com.serdar.animals.data.repository.CatsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class CatsViewmodel
+class CatsViewmModel
 @Inject constructor(private val repository: CatsRepository) : ViewModel() {
 
-    private val _response = MutableLiveData<Cats>()
-    val catsResponse: LiveData<Cats>
+    private val _response = MutableLiveData<String>()
+    val catsUrl: LiveData<String>
         get() = _response
 
     init {
@@ -27,7 +26,7 @@ class CatsViewmodel
         repository.getCats().let { it ->
 
             if (it.isSuccessful) {
-                _response.postValue(it.body())
+                _response.postValue(it.body()?.firstOrNull()?.url.toString())
             } else {
                 Log.d("tag", "getWeather Error: ${it.code()}")
             }

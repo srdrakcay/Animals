@@ -5,11 +5,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
+class DogsRepository @Inject constructor(private val dogsService: DogsService) {
 
-class DogsRepository
-@Inject constructor(private val dogsService: DogsService){
-
-    suspend fun getDogs()= withContext(Dispatchers.IO){
+    suspend fun getDogs() = withContext(Dispatchers.IO) {
         dogsService.getDogs()
     }
 }
